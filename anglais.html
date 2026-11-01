@@ -1,0 +1,408 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Anglais infirmier</title>
+<style>
+:root{--bg:#fff;--fg:#1a1a1a;--cd:#eef1f5;--ac:#2563eb;--ok:#16a34a;--ko:#dc2626;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#15181d;--fg:#eee;--cd:#242a33;--ac:#6b9bff}}
+:root[data-theme="dark"]{--bg:#15181d;--fg:#eee;--cd:#242a33;--ac:#6b9bff}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.4 system-ui,sans-serif;max-width:640px;margin:auto;padding:12px}
+nav{display:flex;gap:6px;margin-bottom:12px}nav button{flex:1;padding:10px 2px;font-size:14px}
+button,select,input{font:inherit;color:var(--fg);background:var(--cd);border:1px solid transparent;border-radius:10px;padding:10px;margin:3px 0}
+button.on,button.go{background:var(--ac);color:#fff}
+.o{display:block;width:100%;text-align:left}.o.ok{background:var(--ok);color:#fff}.o.ko{background:var(--ko);color:#fff}
+.q{font-size:22px;font-weight:600;margin:14px 0;text-align:center}
+.r{display:flex;justify-content:space-between;padding:7px 4px;border-bottom:1px solid var(--cd)}.r b{font-weight:500}
+.ch{display:inline-block;margin:3px}.box{min-height:48px;background:var(--cd);border-radius:10px;padding:6px;margin:8px 0}
+input{width:100%;box-sizing:border-box}.f{padding:10px;border-radius:10px;margin:8px 0}.f.ok{background:var(--ok);color:#fff}.f.ko{background:var(--ko);color:#fff}
+</style></head><body>
+<nav><button onclick="tab(0)">Glossaire</button><button onclick="tab(1)">Révision</button><button onclick="tab(2)">Examen</button><button onclick="tab(3)">Phrases</button></nav>
+<div id="v"></div>
+<script>
+const RAW=`#Unit 1
+I’m hurt=je suis blessé
+my leg hurts=j’ai mal à la jambe
+air splint=attelle gonflable
+trolley=brancard
+emergency cubicle=box d’urgence
+to be allergic to=être allergique à
+intravenous=intraveineux
+heart beat=rythme cardiaque
+blood pressure=tension artérielle
+angina=angine de poitrine
+gall bladder=vésicule biliaire
+once a week=une fois par semaine
+twice a month=deux fois par mois
+five times a year=5 fois par an
+the unit=le service
+medication=médicament
+stroke=AVC
+locker=armoire
+towel=serviette de bain
+wash cloth=gant de toilette
+comb=peigne
+brush=brosse
+gown=chemise de nuit
+cup=tasse
+napkin=serviette de table
+drawer=tiroir
+sick bowl=haricot
+bedside table=table de nuit
+wash basin=lavabo
+folding screen=paravent
+wheelchair=chaise roulante
+armchair=fauteuil
+blanket=couverture
+pillow=oreiller
+curtain=rideau
+call button=sonnette
+sheet=drap
+#Unit 2
+hair=cheveux
+forehead=front
+eyebrow=sourcils
+eye=yeux
+nose=nez
+ear=oreille
+mouth=bouche
+lip=lèvre
+tongue=langue
+chin=menton
+teeth=dents
+cheek=joue
+to rest=reposer
+to wear=porter
+to swallow=avaler
+to breath=respirer
+edge=bord
+opening=entrée/ouverture
+improvements=améliorations
+illness=maladie
+needs=besoins
+sick=malade
+painkiller=calmant
+headache=mal de tête
+to weigh=peser
+roundabout=rond-point
+chemist’s=pharmacie
+ward=service
+floor=étage
+elevator=ascenseur
+go straight on=aller tout droit
+on the third floor=au troisième étage
+turn left=tourner à gauche
+at the end of the corridor=au bout du couloir
+on your right=sur votre droite
+#Unit 3
+forearm=avant-bras
+upper arm=bras supérieur
+colon=colon
+weakness=fragilité
+accident and emergency=urgences
+thought=pensée
+chest=poitrine
+out-patient=malade en consultation
+surgeon=chirurgien
+geriatric ward=service de gériatrie
+intensive care unit=unité de soins intensifs
+short-stay=séjour de courte durée
+operating theatre=bloc opé
+ENT=ORL
+wound=plaie
+to do dressing=faire un pansement
+sample=prélèvement
+cotton swab=cotonet pour prélèvement
+clips=agrafes
+stitches=points de suture
+blade=lame
+to cheer somebody up=réconforter qqn
+dermis=derme
+cornified layer=couche cornée
+sweat gland=glande sudoripare
+arteriole=artériole
+sebaceous gland=glande sébacée
+venule=veinule
+pore=pore
+adipose tissue=tissus adipeux
+arrector pili muscle=muscle arrecteur des poils
+hair follicle=follicule pileux
+epidermis=épiderme
+#Unit 4
+specimen=échantillon pour urines
+pad/nappy=protection/couche
+specimen bottle=bouteille d’échantillon
+catheter=cathéter
+bladder=vessie
+kidney=rein
+urinal=urinoir
+drainage bag=sac de drainage
+throat=gorge
+effective=efficace
+surrounding=environnement
+equipment=matériel
+tool=instrument/outil
+blood flow=circulation sanguine
+bedpan=bassin
+rib=côte
+tonsils=amygdales
+elbow=coude
+trunk=thorax
+skin=peau
+shoulder=épaule
+forceps/tweezers=pince
+scissors=ciseaux
+antiseptic=antiseptique
+swab/compress=compresse
+stitch cutter=coupe point
+scalpel=scalpel
+outcome=résultat
+lung cancer=cancer du poumon
+heavy smoker=gros fumeur
+medical record=dossier médical
+to be short of breath=s’essouffler, manquer d’air
+#Unit 5
+knee=genou
+ankle=cheville
+wrist=poignet
+hip=hanche
+neck=cou
+jaw=mâchoire
+probe=sonde
+splint=attelle
+syringe=seringue
+pin=épingle
+IV bag=poche de perfusion
+scales=balance
+stethoscope=stéthoscope
+oximeter=oxymètre
+test tube=éprouvette
+healthcare assistant=aide soignante
+to check=vérifier
+to take off=enlever
+to breathe in and out=inspirer, expirer
+to cough=tousser
+to get dressed=s’habiller
+to have a wash=se laver
+to have a shave=se raser
+to have a shower=prendre une douche
+to lift=lever
+to rub on some ointment=appliquer de la pommade
+to prevent bedsores=éviter les escarres
+bedridden=grabataire
+on their own=tout seuls
+to involve=impliquer
+to gather=rassembler
+unattended=sans surveillance
+wash bowl=cuvette pour la toilette
+to breathe out=expirer
+crutches=cannes anglaises
+screening test=test de dépistage
+pelvis=bassin/hanches
+in a sling=en écharpe
+palliative care=les soins palliatifs
+plaster=plâtre
+tight=serré
+I had to=j’ai dû
+to dry=sécher
+at once=immédiatement
+#Unit 6
+to change a drip=changer une perfusion
+under medical supervision=sous surveillance médicale
+to take a blood sample=faire une prise de sang
+so-so=comme ci, comme ça
+the nurse on duty=l’infirmier de garde
+to dare=oser
+I’m still on a drip=je suis encore sous perfusion
+I’m used to it=j’y suis habitué
+tourniquet=garrot
+to pass wind=avoir des gaz
+still=immobile
+while=pendant que
+it’s all right=ce n’est pas grave
+drops=gouttes
+tablet=comprimé
+capsule=gélule
+syrup=sirop
+skin patch=dispositif transdermique
+suppository=suppositoire
+ointment=pommade
+to go up=monter
+to rise=se lever
+to increase=augmenter
+to decrease=diminuer
+to fall=tomber
+to go down=descendre
+to remain constant=rester constant
+to be steady=rester stable
+to stay the same=rester le même
+#Unit 7
+to be indicted=être mis en examen
+manslaughter=homicide involontaire
+to be put on probation=être placé sous contrôle judiciaire
+labelling=étiqueter
+to release=faire paraître
+for a long time=depuis longtemps
+I miss my family=ma famille me manque
+to bother=tracasser
+to keep up your morale=garder le moral
+to soften your faeces=ramollir vos selles
+bowels=intestins
+stools=selles
+piles=hémorroïdes
+urethra=urètre
+ureter=uretère
+#Unit 8
+to give up=cesser de
+to take advantage of=profiter de
+to go on a diet=suivre un régime
+you are going to have to=vous allez devoir
+to cut down on=réduire
+fats=graisses
+to go easy on=aller doucement
+to keep to a diet=bien suivre un régime
+to be allowed to=avoir le droit
+aorta=aorte
+pulmonary artery=artère pulmonaire
+pulmonary vein=veine pulmonaire
+left auricle=auricule gauche
+left ventricle=ventricule gauche
+superior vena cava=veine cave supérieure
+right auricle=auricule droite
+inferior vena cava=veine cave inférieure
+right ventricle=ventricule droit
+clot=caillot
+phlebitis=phlébite
+cardiac arrest=arrêt cardiaque
+aneurysm=anévrisme
+oesophagus/gullet=œsophage
+pancreas=pancréas
+anus=anus
+#Anatomie
+consultant=médecin/chef
+senior nurse=cadre de santé
+brain=cerveau
+small intestine=petit intestin
+heart=cœur
+foot/feet=pied
+leg=jambe
+diaphragm=diaphragme
+hand=main
+liver=foie
+thigh=cuisse
+trachea=trachée
+stomach=estomac
+lung=poumons
+fibula=péroné
+patella=rotule
+ribs=côtes
+clavicle=clavicule
+skull=crâne
+tibia=tibia
+femur=fémur
+ulna=cubitus
+humerus=humérus
+sternum=sternum
+vertebral column=colonne vertébrale
+#Prépositions
+in=dans
+on=sur
+on top of=en haut de
+at the top/bottom=en haut/en bas
+inside/outside=à l’intérieur/extérieur
+near=près de
+next to=à côté de
+in front of=devant
+between=entre
+behind=derrière
+opposite=en face de
+under=sous, dessous
+over=dessus
+at=à
+on the left=à gauche
+on the right=à droite
+among=parmi
+along=le long de
+up=en haut
+down=en bas
+into=dans
+out of=hors de
+away=loin
+from=de
+to=à, vers
+through=à travers
+across=de l’autre côté
+past=devant
+around=autour
+#Consignes et fréquence
+every day=tous les jours
+every other day=tous les 2 jours
+at bedtime=à l’heure du coucher
+from time to time=de temps en temps
+before/after meals=avant/après repas
+at mealtimes=à l’heure des repas
+last=en dernier/pour la dernière fois
+3 or 4 times daily=3 ou 4 fois par jour
+relax=détendez-vous
+lie down=allongez-vous
+open your mouth=ouvrez votre bouche
+open your eyes=ouvrez vos yeux
+follow my finger=suivez mon doigt
+swallow=avalez
+breathe deeply=respirez profondément
+sit down=asseyez-vous
+get up=levez-vous
+cough=toussez
+close your eyes=fermez les yeux
+push=poussez
+hold your breath=ne respirez plus`;
+const SENT=`Respirez profondément.|breathe deeply
+Ouvrez votre bouche.|open your mouth
+Ne toussez pas.|don’t cough
+Allongez-vous sur le lit.|lie down on the bed
+J’ai mal à la jambe.|my leg hurts
+Je suis encore sous perfusion.|I’m still on a drip
+L’infirmière va changer la perfusion.|the nurse is going to change the drip
+Vous allez devoir réduire les graisses.|you are going to have to cut down on fats
+Je vais prendre une douche.|I am going to have a shower
+Elle a fait une prise de sang.|she took a blood sample
+Le chirurgien a utilisé un scalpel.|the surgeon used a scalpel
+Avez-vous pris votre médicament ?|have you taken your medication
+Avez-vous fait le pansement ?|did you do the dressing
+L’infirmière vérifiera la tension artérielle.|the nurse will check the blood pressure
+Ma famille me manque.|I miss my family
+Il a fait un AVC.|he had a stroke
+C’est un gros fumeur.|he is a heavy smoker
+Prenez ce sirop 3 ou 4 fois par jour.|take this syrup 3 or 4 times daily
+Le patient est sous surveillance médicale.|the patient is under medical supervision
+Il ne peut pas se lever tout seul.|he can’t get up on his own
+Appliquez de la pommade sur la peau.|rub some ointment on the skin
+Le patient n’a pas le droit de manger.|the patient is not allowed to eat
+Elle suit un régime.|she is on a diet
+Je n’ai pas pris de douche.|I have not taken a shower
+Je suis allergique à ce médicament.|I’m allergic to this medication`;
+const U={};let cu;RAW.split('\n').forEach(l=>{if(l[0]=='#')U[cu=l.slice(1)]=[];else U[cu].push(l.split('='))});
+const ALL=Object.values(U).flat(),$=id=>document.getElementById(id),V=$('v');
+const sh=a=>[...a].sort(()=>Math.random()-.5);
+const nm=s=>s.toLowerCase().replace(/œ/g,'oe').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[’']/g,"'").replace(/[^a-z0-9' ]/g,' ').replace(/\s+/g,' ').trim();
+const acc=q=>ALL.filter(e=>e[q.d]==q.e[q.d]).map(e=>e[1-q.d]);
+const good=(q,a)=>acc(q).some(c=>[c,...c.split(/[\/,]/)].some(v=>nm(v)==nm(a)&&nm(a)));
+const opts=(u,m)=>`<select id="u"><option value="*">Aléatoire (tout)</option>${Object.keys(U).map(k=>`<option>${k}</option>`).join('')}</select><select id="dir"><option value="0">Anglais → Français</option><option value="1">Français → Anglais</option><option value="m">Mixte</option></select><button class="go" onclick="start('${m}')">Commencer</button>`;
+function tab(i){[...document.querySelectorAll('nav button')].forEach((b,j)=>b.classList.toggle('on',i==j));
+if(i==0)gl();else if(i==3){P=[];ph()}else V.innerHTML=`<h3>${i==1?'Révision QCM':'Examen (saisie)'}</h3>`+opts(0,i==1?'q':'x')+'<p>Une série = 30 mots max (20 en aléatoire). Un mot raté peut revenir plus tard dans la série.</p>'}
+function gl(){V.innerHTML=`<input id="s" placeholder="Rechercher…" oninput="fl()"><select id="g" onchange="fl()"><option value="">Toutes les unités</option>${Object.keys(U).map(k=>`<option>${k}</option>`).join('')}</select><div id="l"></div>`;fl()}
+function fl(){const s=nm($('s').value),g=$('g').value;$('l').innerHTML=Object.entries(U).filter(([k])=>!g||k==g).map(([k,a])=>{const r=a.filter(e=>!s||nm(e[0]+' '+e[1]).includes(s));return r.length?`<h4>${k}</h4>`+r.map(e=>`<div class="r"><span>${e[0]}</span><b>${e[1]}</b></div>`).join(''):''}).join('')}
+let S;
+function start(m){const u=$('u').value,d=$('dir').value,p=sh(u=='*'?ALL:U[u]).slice(0,u=='*'?20:30);S={m,u,n:p.length,ok:0,q:p.map(e=>({e,d:d=='m'?+(Math.random()<.5):+d,t:0}))};nx()}
+function nx(){if(!S.q.length)return end();const q=S.q[0],pr=q.e[q.d];let h=`<p>${S.n-S.q.length+1>S.n?S.n:S.q.length} restant(s)</p><div class="q">${pr}</div>`;
+if(S.m=='q'){const a=acc(q),w=sh(ALL.map(e=>e[1-q.d]).filter(x=>!a.includes(x)&&!a.some(y=>nm(y)==nm(x)))).filter((x,i,r)=>r.indexOf(x)==i).slice(0,3);q.o=sh([q.e[1-q.d],...w]);h+=q.o.map((o,i)=>`<button class="o" onclick="an(${i})">${o}</button>`).join('')}
+else h+=`<input id="a" autocomplete="off" autocapitalize="off" placeholder="Ta réponse"><button class="go" onclick="an()">Valider</button>`;V.innerHTML=h+'<div id="fb"></div>';if($('a')){$('a').focus();$('a').onkeydown=e=>e.key=='Enter'&&an()}}
+function an(i){if(S.lock)return;const q=S.q[0],val=i==null?$('a').value:q.o[i],g=good(q,val);S.lock=1;
+if(g&&!q.t)S.ok++;S.q.shift();if(!g&&Math.random()<.5)S.q.splice(Math.min(2,S.q.length)+Math.floor(Math.random()*Math.max(1,S.q.length-1)),0,{e:q.e,d:q.d,t:1});
+if(i!=null)document.querySelectorAll('.o').forEach((b,j)=>{if(good(q,q.o[j]))b.classList.add('ok');else if(j==i)b.classList.add('ko')});
+$('fb').innerHTML=`<div class="f ${g?'ok':'ko'}">${g?'✅ Bonne réponse':'❌ Faux'} : <b>${q.e[0]}</b> = <b>${q.e[1]}</b></div><button class="go" id="nb" onclick="S.lock=0;nx()">Suivant</button>`;$('nb').focus()}
+function end(){let k='b'+S.m+S.u,b=0;try{b=+localStorage.getItem(k)||0}catch(e){}const sc=Math.round(100*S.ok/S.n);if(sc>b){b=sc;try{localStorage.setItem(k,sc)}catch(e){}}
+V.innerHTML=`<div class="q">Série terminée<br>${S.ok}/${S.n} du premier coup (${sc} %)</div><p style="text-align:center">Meilleur score (${S.u=='*'?'aléatoire':S.u}) : ${b} %</p><button class="go" onclick="tab(${S.m=='q'?1:2})">Rejouer</button>`}
+let P=[],c;
+function ph(){if(!P.length)P=sh(SENT.split('\n'));const[f,e]=P.pop().split('|');c={f,e,t:e.split(' '),a:[],done:0};c.p=sh(c.t.map((_,i)=>i));dp()}
+function dp(){V.innerHTML=`<h3>Remets les mots dans l’ordre</h3><div class="q">${c.f}</div><div class="box">${c.a.map(i=>`<button class="ch" onclick="mv(${i},0)">${c.t[i]}</button>`).join('')}</div><div>${c.p.map(i=>`<button class="ch" onclick="mv(${i},1)">${c.t[i]}</button>`).join('')}</div><div id="fb"></div><button class="go" onclick="vp()">Valider</button>`}
+function mv(i,t){if(c.done)return;if(t){c.p=c.p.filter(x=>x!=i);c.a.push(i)}else{c.a=c.a.filter(x=>x!=i);c.p.push(i)}dp()}
+function vp(){if(c.done)return;c.done=1;const g=c.a.map(i=>c.t[i]).join(' ')==c.e;$('fb').innerHTML=`<div class="f ${g?'ok':'ko'}">${g?'✅ Ordre correct !':'❌ Ordre incorrect'}<br>${c.e}</div><button class="go" onclick="ph()">Phrase suivante</button>`}
+tab(0);
+</script></body></html>
