@@ -11,7 +11,7 @@ button.on,button.go{background:var(--ac);color:#fff}
 .q{font-size:22px;font-weight:600;margin:14px 0;text-align:center}
 .r{display:flex;justify-content:space-between;padding:7px 4px;border-bottom:1px solid var(--cd)}.r b{font-weight:500}
 .ch{display:inline-block;margin:3px}.box{min-height:48px;background:var(--cd);border-radius:10px;padding:6px;margin:8px 0}
-input{width:100%;box-sizing:border-box}.f{padding:10px;border-radius:10px;margin:8px 0}.f.ok{background:var(--ok);color:#fff}.f.ko{background:var(--ko);color:#fff}
+input{width:100%;box-sizing:border-box;-webkit-user-select:text;user-select:text;pointer-events:auto}.f{padding:10px;border-radius:10px;margin:8px 0}.f.ok{background:var(--ok);color:#fff}.f.ko{background:var(--ko);color:#fff}
 </style></head><body>
 <nav><button onclick="tab(0)">Glossaire</button><button onclick="tab(1)">Révision</button><button onclick="tab(2)">Examen</button><button onclick="tab(3)">Phrases</button></nav>
 <div id="v"></div>
@@ -392,7 +392,7 @@ let S;
 function start(m){const u=$('u').value,d=$('dir').value,p=sh(u=='*'?ALL:U[u]).slice(0,u=='*'?20:30);S={m,u,n:p.length,ok:0,q:p.map(e=>({e,d:d=='m'?+(Math.random()<.5):+d,t:0}))};nx()}
 function nx(){if(!S.q.length)return end();const q=S.q[0],pr=q.e[q.d];let h=`<p>${S.n-S.q.length+1>S.n?S.n:S.q.length} restant(s)</p><div class="q">${pr}</div>`;
 if(S.m=='q'){const a=acc(q),w=sh(ALL.map(e=>e[1-q.d]).filter(x=>!a.includes(x)&&!a.some(y=>nm(y)==nm(x)))).filter((x,i,r)=>r.indexOf(x)==i).slice(0,3);q.o=sh([q.e[1-q.d],...w]);h+=q.o.map((o,i)=>`<button class="o" onclick="an(${i})">${o}</button>`).join('')}
-else h+=`<input id="a" autocomplete="off" autocapitalize="off" placeholder="Ta réponse"><button class="go" onclick="an()">Valider</button>`;V.innerHTML=h+'<div id="fb"></div>';if($('a')){$('a').focus();$('a').onkeydown=e=>e.key=='Enter'&&an()}}
+else h+=`<input id="a" type="text" inputmode="text" enterkeyhint="done" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Ta réponse" onkeydown="if(event.key==='Enter')an()"><button class="go" onclick="an()">Valider</button>`;V.innerHTML=h+'<div id="fb"></div>';}
 function an(i){if(S.lock)return;const q=S.q[0],val=i==null?$('a').value:q.o[i],g=good(q,val);S.lock=1;
 if(g&&!q.t)S.ok++;S.q.shift();if(!g&&Math.random()<.5)S.q.splice(Math.min(2,S.q.length)+Math.floor(Math.random()*Math.max(1,S.q.length-1)),0,{e:q.e,d:q.d,t:1});
 if(i!=null)document.querySelectorAll('.o').forEach((b,j)=>{if(good(q,q.o[j]))b.classList.add('ok');else if(j==i)b.classList.add('ko')});
